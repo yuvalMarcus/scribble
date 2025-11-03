@@ -1,0 +1,19 @@
+@import 'tailwindcss';
+
+html,
+body {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    height: 100%;
+}
+
+#root {
+    height: 100%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    @apply appearance-none w-4 h-4 rounded-full bg-gray-500 cursor-pointer;
+  }
+  
+  input[type="range"]::-moz-range-thumb {
+    @apply w-4 h-4 rounded-full bg-gray-500 cursor-pointer;
+  }
