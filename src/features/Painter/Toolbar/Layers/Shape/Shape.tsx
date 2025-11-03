@@ -1,5 +1,5 @@
 import type { FabricObjectWithData } from '../../../Painter.type'
-import { mapShapeToIcon, SHAPE_TYPE } from '../../Shape/shape.config'
+import { mapShapeToIcon, SHAPE_TYPE } from './shape.config'
 
 interface ShapeProps {
     object: FabricObjectWithData
@@ -8,5 +8,5 @@ interface ShapeProps {
 export const Shape = ({ object }: ShapeProps) => {
     const type = object.data.shape as SHAPE_TYPE
 
-    return mapShapeToIcon[type](false, () => {})
+    return mapShapeToIcon[type]
 }

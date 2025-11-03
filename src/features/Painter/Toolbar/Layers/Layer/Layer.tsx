@@ -1,12 +1,15 @@
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
-import type { FabricImage, FabricText } from 'fabric'
 import { Emoji } from '../Emoji/Emoji'
 import { Text } from '../Text/Text'
 import { ACTION_TYPE, mapActionToIcon } from '../../../paint.config'
 import { Photo } from '../Photo/Photo'
 import { Shape } from '../Shape/Shape'
-import type { FabricObjectWithData } from '../../../Painter.type'
+import type {
+    FabricImageWithData,
+    FabricObjectWithData,
+    FabricTextWithData,
+} from '../../../Painter.type'
 import { Draw } from '../Draw/Draw'
 
 interface LayerProps {
@@ -32,14 +35,14 @@ export const Layer = ({ object }: LayerProps) => {
         >
             {object.data.category === 'draw' && <Draw />}
             {object.data.category === 'text' && (
-                <Text object={object as unknown as FabricText} />
+                <Text object={object as FabricTextWithData} />
             )}
             {object.data.category === 'shape' && <Shape object={object} />}
             {object.data.category === 'emoji' && (
-                <Emoji object={object as unknown as FabricImage} />
+                <Emoji object={object as FabricImageWithData} />
             )}
             {object.data.category === 'photo' && (
-                <Photo object={object as unknown as FabricImage} />
+                <Photo object={object as FabricImageWithData} />
             )}
             <div>
                 <Icon className="size-6 stroke-gray-600" />
