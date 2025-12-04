@@ -1,12 +1,14 @@
+import { useState, type RefObject } from 'react'
 import type { Canvas } from 'fabric'
 import { FabricImage } from 'fabric'
-import { useState, type RefObject } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import emojis from './openmoji.json'
 import clsx from 'clsx'
-import { v4 as uuidv4 } from 'uuid'
 import usePaint from '../../../../context/PaintContext'
 import type { Emoji as EmojiType } from './Emoji.type'
 import { Image } from './Image/image'
+
+const DEFAULT_CATEGORY = 'smileys-emotion'
 
 interface EmojiProps {
     canvas: RefObject<Canvas | null>
@@ -16,13 +18,13 @@ interface EmojiProps {
 export const Emoji = ({ canvas, onClose }: EmojiProps) => {
     const [selectedEmoji, setSelectedEmoji] = useState<string | null>(null)
     const [selectedCategory, setSelectedCategory] =
-        useState<string>('smileys-emotion')
+        useState<string>(DEFAULT_CATEGORY)
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [search, setSearch] = useState<string>('')
 
     const { addHistory } = usePaint()
 
-    const handleCreateEmoji = async () => {
+    const handleCreateEmoji = async (): Promise<void> => {
         setIsLoading(true)
 
         const img = await FabricImage.fromURL(`emojis/${selectedEmoji}.png`)

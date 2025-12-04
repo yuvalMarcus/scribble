@@ -5,5 +5,9 @@ interface TextProps {
 }
 
 export const Text = ({ object }: TextProps) => {
-    return <p className="truncate">{object.text}</p>
+    return (
+        <p className="truncate" style={{ color: object.fill as string }}>
+            {object.text}
+        </p>
+    )
 }

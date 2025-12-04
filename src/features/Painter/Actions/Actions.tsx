@@ -1,12 +1,13 @@
-import { ACTION_TYPE, mapActionToIcon } from '../paint.config'
 import clsx from 'clsx'
+import { ACTION_TYPE, mapActionToIcon } from '../paint.config'
+import type { JSX } from 'react'
 
 interface ActionsProps {
     action: ACTION_TYPE | null
     onChange: (action: ACTION_TYPE) => void
 }
 
-export const Actions = ({ action, onChange }: ActionsProps) => {
+export const Actions = ({ action, onChange }: ActionsProps): JSX.Element => {
     return (
         <div className="flex flex-col gap-2 bg-gray-300 p-2 shadow-md">
             {Object.values(ACTION_TYPE).map((value) => {
@@ -21,7 +22,7 @@ export const Actions = ({ action, onChange }: ActionsProps) => {
                                 'bg-purple-400 text-white': action === value,
                             }
                         )}
-                        onClick={() => onChange(value)}
+                        onClick={() => onChange(value as ACTION_TYPE)}
                     >
                         <Icon className="size-10" />
                         <p className="text-center capitalize">{value}</p>

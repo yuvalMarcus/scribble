@@ -1,6 +1,6 @@
+import { useState } from 'react'
 import { PhotoIcon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
-import { useState } from 'react'
 
 interface ImageProps {
     hexcode: string

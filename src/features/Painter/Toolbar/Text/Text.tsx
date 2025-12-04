@@ -1,12 +1,13 @@
 import { useState, type ChangeEvent, type RefObject } from 'react'
 import { Canvas, FabricText, IText } from 'fabric'
 import { v4 as uuidv4 } from 'uuid'
+import clsx from 'clsx'
+import { HexColorPicker } from 'react-colorful'
 import {
     BoldIcon,
     UnderlineIcon,
     ItalicIcon,
 } from '@heroicons/react/24/outline'
-
 import {
     DEFAULT_COLOR,
     DEFAULT_SIZE,
@@ -14,8 +15,6 @@ import {
     FONT_WEIGHT,
     TEXT_DECORATION,
 } from './text.config.ts'
-import clsx from 'clsx'
-import { HexColorPicker } from 'react-colorful'
 import type { FabricObjectWithData } from '../../Painter.type.ts'
 import usePaint from '../../../../context/PaintContext.tsx'
 
@@ -56,7 +55,7 @@ const Text = ({ canvas, objectId, onClose }: TextProps) => {
 
     const { addHistory } = usePaint()
 
-    const handleUpdateFontWeight = () => {
+    const handleUpdateFontWeight = (): void => {
         const fontWeight = isBold ? FONT_WEIGHT.NORMAL : FONT_WEIGHT.BOLD
         setFontWeight(fontWeight)
 
@@ -71,7 +70,7 @@ const Text = ({ canvas, objectId, onClose }: TextProps) => {
         canvas.current?.renderAll()
     }
 
-    const handleUpdateTextDecoration = () => {
+    const handleUpdateTextDecoration = (): void => {
         setTextDecoration(
             isUnderline ? TEXT_DECORATION.NONE : TEXT_DECORATION.UNDERLINE
         )
@@ -87,7 +86,7 @@ const Text = ({ canvas, objectId, onClose }: TextProps) => {
         canvas.current?.renderAll()
     }
 
-    const handleUpdateFontStyle = () => {
+    const handleUpdateFontStyle = (): void => {
         const fontStyle = isItalic ? FONT_STYLE.NORMAL : FONT_STYLE.ITALIC
         setFontStyle(fontStyle)
 
@@ -102,7 +101,7 @@ const Text = ({ canvas, objectId, onClose }: TextProps) => {
         canvas.current?.renderAll()
     }
 
-    const handleUpdateSize = (event: ChangeEvent<HTMLInputElement>) => {
+    const handleUpdateSize = (event: ChangeEvent<HTMLInputElement>): void => {
         const value = +event.target.value || 1
         setSize(value)
 
@@ -117,7 +116,7 @@ const Text = ({ canvas, objectId, onClose }: TextProps) => {
         canvas.current?.renderAll()
     }
 
-    const handleUpdateColor = (color: string) => {
+    const handleUpdateColor = (color: string): void => {
         setColor(color)
 
         if (!object) return
@@ -131,7 +130,7 @@ const Text = ({ canvas, objectId, onClose }: TextProps) => {
         canvas.current?.renderAll()
     }
 
-    const handleCreateText = () => {
+    const handleCreateText = (): void => {
         const newId = uuidv4()
 
         const newText = new IText('Text', {

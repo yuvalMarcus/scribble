@@ -8,5 +8,5 @@ interface ShapeProps {
 export const Shape = ({ object }: ShapeProps) => {
     const type = object.data.shape as SHAPE_TYPE
 
-    return mapShapeToIcon[type]
+    return mapShapeToIcon[type](object.fill as string)
 }

@@ -19,7 +19,7 @@ export const Layers = ({ canvas }: LayersProps) => {
 
     const { addHistory } = usePaint()
 
-    const handleDragEnd = (event: DragEndEvent) => {
+    const handleDragEnd = (event: DragEndEvent): void => {
         if (!event.over) return
 
         if (event.active.id !== event.over.id) {

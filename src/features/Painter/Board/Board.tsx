@@ -21,7 +21,7 @@ export const Board = ({
     selectedAction,
     setSelectedAction,
 }: BoardProps) => {
-    const handleActionChange = (action: ACTION_TYPE) => {
+    const handleActionChange = (action: ACTION_TYPE): void => {
         canvas.current?.discardActiveObject()
         canvas.current?.requestRenderAll()
         setSelectedObjectId(null)

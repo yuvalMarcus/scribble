@@ -1,5 +1,8 @@
-import { v4 as uuidv4 } from 'uuid'
+import { useState, type ChangeEvent, type RefObject } from 'react'
 import { Canvas, FabricObject } from 'fabric'
+import { v4 as uuidv4 } from 'uuid'
+import { HexColorPicker } from 'react-colorful'
+import clsx from 'clsx'
 import {
     DEFAULT_COLOR,
     DEFAULT_SIZE,
@@ -7,9 +10,6 @@ import {
     mapShapeToIcon,
     SHAPE_TYPE,
 } from './shape.config.tsx'
-import { useState, type ChangeEvent, type RefObject } from 'react'
-import clsx from 'clsx'
-import { HexColorPicker } from 'react-colorful'
 import type { FabricObjectWithData } from '../../Painter.type.ts'
 import usePaint from '../../../../context/PaintContext.tsx'
 
@@ -41,7 +41,7 @@ const Shape = ({ canvas, objectId, onClose }: ShapeProps) => {
 
     const { addHistory } = usePaint()
 
-    const handleUpdateSize = (event: ChangeEvent<HTMLInputElement>) => {
+    const handleUpdateSize = (event: ChangeEvent<HTMLInputElement>): void => {
         const size = +event.target.value
         setSize(size)
 
@@ -57,7 +57,7 @@ const Shape = ({ canvas, objectId, onClose }: ShapeProps) => {
         canvas.current?.renderAll()
     }
 
-    const handleUpdateStroke = (color: string) => {
+    const handleUpdateStroke = (color: string): void => {
         setStroke(color)
 
         if (!object) return
@@ -72,7 +72,7 @@ const Shape = ({ canvas, objectId, onClose }: ShapeProps) => {
         canvas.current?.renderAll()
     }
 
-    const handleUpdateFill = (color: string) => {
+    const handleUpdateFill = (color: string): void => {
         setFill(color)
 
         if (!object) return
@@ -87,7 +87,7 @@ const Shape = ({ canvas, objectId, onClose }: ShapeProps) => {
         canvas.current?.renderAll()
     }
 
-    const handleCreateShape = () => {
+    const handleCreateShape = (): void => {
         const newId = uuidv4()
 
         const object = mapShapeToFabricObject[selectedShape](

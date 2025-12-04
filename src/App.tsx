@@ -3,7 +3,7 @@ import Router from './router/Router'
 
 const queryClient = new QueryClient()
 
-function App() {
+const App = () => {
     return (
         <QueryClientProvider client={queryClient}>
             <Router />

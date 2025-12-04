@@ -1,7 +1,7 @@
 import { useState, type RefObject } from 'react'
-import { UploadPhotoModal } from '../../../../components/UploadPhotoModal/UploadPhotoModal'
 import { FabricImage, type Canvas } from 'fabric'
 import { v4 as uuidv4 } from 'uuid'
+import { UploadPhotoModal } from '../../../../components/UploadPhotoModal/UploadPhotoModal'
 import usePaint from '../../../../context/PaintContext'
 
 interface PhotoProps {
@@ -14,7 +14,7 @@ export const Photo = ({ canvas, onClose }: PhotoProps) => {
 
     const { addHistory } = usePaint()
 
-    const handleCreatePhoto = async (file: File) => {
+    const handleCreatePhoto = async (file: File): Promise<void> => {
         setIsLoading(true)
 
         const objectURL = URL.createObjectURL(file)

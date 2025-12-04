@@ -9,7 +9,7 @@ interface FileDropdownProps {
 export const FileDropdown = ({ canvas }: FileDropdownProps) => {
     const [isImportPaintOpen, setIsImportPaintOpen] = useState<boolean>(false)
 
-    const handleSavePaint = async () => {
+    const handleSavePaint = async (): Promise<void> => {
         const dataURL = canvas.current?.toDataURL({
             format: 'png',
             quality: 1.0,
@@ -24,7 +24,7 @@ export const FileDropdown = ({ canvas }: FileDropdownProps) => {
         }
     }
 
-    const handleExportPaint = () => {
+    const handleExportPaint = (): void => {
         const dataJson = canvas.current?.toJSON()
 
         if (dataJson) {

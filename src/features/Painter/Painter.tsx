@@ -78,7 +78,7 @@ export const Painter = () => {
         }
     }, [])
 
-    const handleOpenEditor = () => {
+    const handleOpenEditor = (): void => {
         const object = canvas.current
             ?.getObjects()
             .find(

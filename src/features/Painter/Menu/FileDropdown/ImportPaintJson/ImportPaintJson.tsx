@@ -1,8 +1,8 @@
 import { type RefObject } from 'react'
-import { Canvas as FabricCanvas } from 'fabric'
-import { UploadPhotoModal } from '../../../../../components/UploadPhotoModal/UploadPhotoModal'
 import { createPortal } from 'react-dom'
+import { Canvas as FabricCanvas } from 'fabric'
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import { UploadPhotoModal } from '../../../../../components/UploadPhotoModal/UploadPhotoModal'
 
 interface ImportPaintJsonProps {
     canvas: RefObject<FabricCanvas | null>
@@ -10,7 +10,7 @@ interface ImportPaintJsonProps {
 }
 
 export const ImportPaintJson = ({ canvas, onClose }: ImportPaintJsonProps) => {
-    const handleUploadFIle = async (file: File) => {
+    const handleUploadFIle = async (file: File): Promise<void> => {
         const objectURL = await URL.createObjectURL(file)
 
         const response = await fetch(objectURL)

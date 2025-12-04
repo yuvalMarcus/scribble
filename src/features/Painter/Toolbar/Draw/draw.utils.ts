@@ -1,7 +1,7 @@
 import { Canvas, FabricObject, PencilBrush, Shadow, SprayBrush } from 'fabric'
+import { v4 as uuidv4 } from 'uuid'
 import { DRAW_TYPE } from './draw.config.ts'
 import { DEFAULT_COLOR, DEFAULT_SIZE } from './Draw.tsx'
-import { v4 as uuidv4 } from 'uuid'
 import type { FabricObjectWithData } from '../../Painter.type.ts'
 import type { ACTION_TYPE } from '../../paint.config.ts'
 

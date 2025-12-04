@@ -11,7 +11,7 @@ export const Settings = ({ canvas }: SettingsProps) => {
         (canvas.current?.backgroundColor ?? '#ffffff') as string
     )
 
-    const handleUpdateColor = (color: string) => {
+    const handleUpdateColor = (color: string): void => {
         canvas.current?.set('backgroundColor', color)
         canvas.current?.renderAll()
         setBackgroundColor(color)

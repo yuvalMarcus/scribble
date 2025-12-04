@@ -1,5 +1,7 @@
-import { Canvas as FabricCanvas } from 'fabric'
 import { useEffect, useState, type ChangeEvent, type RefObject } from 'react'
+import { Canvas as FabricCanvas } from 'fabric'
+import clsx from 'clsx'
+import { HexColorPicker } from 'react-colorful'
 import {
     drawingMode,
     setActionType,
@@ -7,8 +9,6 @@ import {
     setBrushSize,
 } from './draw.utils.ts'
 import { DRAW_TYPE, mapDrawTypeToIcon } from './draw.config.ts'
-import clsx from 'clsx'
-import { HexColorPicker } from 'react-colorful'
 
 export const DEFAULT_SIZE = 10
 export const DEFAULT_COLOR = '#000000'
@@ -33,17 +33,17 @@ export const Draw = ({ canvas }: DrawProps) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [canvas?.current])
 
-    const handleUpdateType = (value: DRAW_TYPE) => {
+    const handleUpdateType = (value: DRAW_TYPE): void => {
         setSelectedType(value)
         setActionType(canvas.current, value)
     }
 
-    const handleUpdateSize = (event: ChangeEvent<HTMLInputElement>) => {
+    const handleUpdateSize = (event: ChangeEvent<HTMLInputElement>): void => {
         setSize(+event.target.value || 1)
         setBrushSize(canvas.current, +event.target.value || 1)
     }
 
-    const handleUpdateColor = (color: string) => {
+    const handleUpdateColor = (color: string): void => {
         setColor(color)
         setBrushColor(canvas.current, color)
     }
