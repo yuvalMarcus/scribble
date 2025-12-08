@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, type FC } from 'react'
 import history from '../features/Painter/classes/History'
 import type {
     PaintContext as PaintContextType,
@@ -13,18 +13,18 @@ const PaintContext = createContext<PaintContextType>({
     isCanUndo: false,
 })
 
-export const PaintProvider = ({ children }: PaintProviderType) => {
+export const PaintProvider: FC<PaintProviderType> = ({ children }) => {
     const [isCanRedo, setIsCanRedo] = useState<boolean>(false)
     const [isCanUndo, setIsCanUndo] = useState<boolean>(false)
 
-    const addHistory = (json: string) => {
+    const addHistory = (json: string): void => {
         history.add(json)
 
         setIsCanRedo(history.isCanRedo())
         setIsCanUndo(history.isCanUndo())
     }
 
-    const redo = () => {
+    const redo = (): string | null => {
         const json = history.redo() ?? null
 
         setIsCanUndo(history.isCanUndo())
@@ -33,7 +33,7 @@ export const PaintProvider = ({ children }: PaintProviderType) => {
         return json
     }
 
-    const undo = () => {
+    const undo = (): string | null => {
         const json = history.undo() ?? null
 
         setIsCanRedo(history.isCanRedo())

@@ -1,9 +1,9 @@
+import type { ForwardRefExoticComponent, SVGProps } from 'react'
 import {
     PencilIcon,
     PaintBrushIcon,
     SparklesIcon,
 } from '@heroicons/react/24/outline'
-import type { ForwardRefExoticComponent, SVGProps } from 'react'
 
 export enum DRAW_TYPE {
     PENCIL = 'pencil',

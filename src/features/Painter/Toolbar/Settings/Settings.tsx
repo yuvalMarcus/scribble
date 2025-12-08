@@ -1,4 +1,4 @@
-import { useState, type RefObject } from 'react'
+import { useState, type FC, type RefObject } from 'react'
 import { Canvas } from 'fabric'
 import { HexColorPicker } from 'react-colorful'
 
@@ -6,7 +6,7 @@ interface SettingsProps {
     canvas: RefObject<Canvas | null>
 }
 
-export const Settings = ({ canvas }: SettingsProps) => {
+export const Settings: FC<SettingsProps> = ({ canvas }) => {
     const [backgroundColor, setBackgroundColor] = useState<string>(
         (canvas.current?.backgroundColor ?? '#ffffff') as string
     )

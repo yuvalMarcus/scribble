@@ -1,4 +1,4 @@
-import { useState, type RefObject } from 'react'
+import { useState, type FC, type RefObject } from 'react'
 import type { Canvas } from 'fabric'
 import { FabricImage } from 'fabric'
 import { v4 as uuidv4 } from 'uuid'
@@ -6,7 +6,7 @@ import emojis from './openmoji.json'
 import clsx from 'clsx'
 import usePaint from '../../../../context/PaintContext'
 import type { Emoji as EmojiType } from './Emoji.type'
-import { Image } from './Image/image'
+import { Item } from './Item/Item'
 
 const DEFAULT_CATEGORY = 'smileys-emotion'
 
@@ -15,7 +15,7 @@ interface EmojiProps {
     onClose: () => void
 }
 
-export const Emoji = ({ canvas, onClose }: EmojiProps) => {
+export const Emoji: FC<EmojiProps> = ({ canvas, onClose }) => {
     const [selectedEmoji, setSelectedEmoji] = useState<string | null>(null)
     const [selectedCategory, setSelectedCategory] =
         useState<string>(DEFAULT_CATEGORY)
@@ -94,7 +94,7 @@ export const Emoji = ({ canvas, onClose }: EmojiProps) => {
                         {emojisHash[selectedCategory]
                             .filter(({ tags }) => tags.includes(search))
                             .map(({ hexcode }) => (
-                                <Image
+                                <Item
                                     key={hexcode}
                                     hexcode={hexcode}
                                     selectedEmoji={selectedEmoji}

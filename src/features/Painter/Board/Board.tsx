@@ -1,26 +1,31 @@
-import { type RefObject } from 'react'
+import {
+    type Dispatch,
+    type FC,
+    type RefObject,
+    type SetStateAction,
+} from 'react'
 import { Canvas as FabricCanvas } from 'fabric'
-import { Actions } from '../Actions/Actions'
-import { ToolBar } from '../Toolbar/ToolBar'
+import { Actions } from '../Actions'
+import { ToolBar } from '../Toolbar'
 import { ACTION_TYPE } from '../paint.config'
 
 interface BoardProps {
     controller: RefObject<HTMLDivElement | null>
     canvas: RefObject<FabricCanvas | null>
     objectId: string | null
-    setSelectedObjectId: React.Dispatch<React.SetStateAction<string | null>>
+    setSelectedObjectId: Dispatch<SetStateAction<string | null>>
     selectedAction: ACTION_TYPE | null
-    setSelectedAction: React.Dispatch<React.SetStateAction<ACTION_TYPE | null>>
+    setSelectedAction: Dispatch<SetStateAction<ACTION_TYPE | null>>
 }
 
-export const Board = ({
+export const Board: FC<BoardProps> = ({
     controller,
     canvas,
     objectId,
     setSelectedObjectId,
     selectedAction,
     setSelectedAction,
-}: BoardProps) => {
+}) => {
     const handleActionChange = (action: ACTION_TYPE): void => {
         canvas.current?.discardActiveObject()
         canvas.current?.requestRenderAll()

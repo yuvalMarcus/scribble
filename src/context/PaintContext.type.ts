@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react'
+
 export interface PaintContext {
     addHistory: (json: string) => void
     redo: () => string | null
@@ -7,5 +9,5 @@ export interface PaintContext {
 }
 
 export interface PaintProvider {
-    children: React.ReactNode
+    children: ReactNode
 }

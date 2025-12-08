@@ -1,4 +1,4 @@
-import { useLayoutEffect } from 'react'
+import { useLayoutEffect, type FC } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { useForm } from 'react-hook-form'
 import { ArrowUpOnSquareIcon } from '@heroicons/react/24/outline'
@@ -20,13 +20,13 @@ interface UploadPhotoModalProps {
     onClose: () => void
 }
 
-export const UploadPhotoModal = ({
+export const UploadPhotoModal: FC<UploadPhotoModalProps> = ({
     label = 'photo',
     onUploadFile,
     accept,
     isLoading,
     onClose,
-}: UploadPhotoModalProps) => {
+}) => {
     const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
         multiple: false,
         accept,

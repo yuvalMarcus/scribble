@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router'
-import { Layout } from '../components/Layout/Layout'
-import { Painter } from '../features/Painter/Painter'
+import { Layout } from '../components/Layout'
+import { Painter } from '../features/Painter'
 import { PaintProvider } from '../context/PaintContext'
 
 const router = createBrowserRouter([

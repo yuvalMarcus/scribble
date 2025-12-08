@@ -1,5 +1,5 @@
 import type { Canvas } from 'fabric'
-import { useState, type RefObject } from 'react'
+import { useState, type FC, type RefObject } from 'react'
 import { DndContext, type DragEndEvent } from '@dnd-kit/core'
 import { arrayMove, SortableContext } from '@dnd-kit/sortable'
 import { Layer } from './Layer/Layer'
@@ -10,7 +10,7 @@ interface LayersProps {
     canvas: RefObject<Canvas | null>
 }
 
-export const Layers = ({ canvas }: LayersProps) => {
+export const Layers: FC<LayersProps> = ({ canvas }) => {
     const [objectsIds, setObjectsIds] = useState<string[]>(
         canvas.current
             ?.getObjects()
@@ -33,7 +33,6 @@ export const Layers = ({ canvas }: LayersProps) => {
             const sortObjects = arrayMove(objectsIds, oldIdx, newIdx)
 
             const objects = canvas.current?.getObjects()
-
             const backgroundColor = canvas.current?.backgroundColor
 
             addHistory(JSON.stringify(canvas.current?.toJSON()))
@@ -48,7 +47,6 @@ export const Layers = ({ canvas }: LayersProps) => {
             })
 
             canvas.current?.set('backgroundColor', backgroundColor)
-
             canvas?.current?.renderAll()
 
             setObjectsIds(sortObjects)

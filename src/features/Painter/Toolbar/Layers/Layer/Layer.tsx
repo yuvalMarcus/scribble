@@ -1,22 +1,23 @@
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
-import { Emoji } from '../Emoji/Emoji'
-import { Text } from '../Text/Text'
+import { Emoji } from './components/Emoji'
+import { Text } from './components/Text'
 import { ACTION_TYPE, mapActionToIcon } from '../../../paint.config'
-import { Photo } from '../Photo/Photo'
-import { Shape } from '../Shape/Shape'
+import { Photo } from './components/Photo'
+import { Shape } from './components/Shape'
 import type {
     FabricImageWithData,
     FabricObjectWithData,
     FabricTextWithData,
 } from '../../../Painter.type'
-import { Draw } from '../Draw/Draw'
+import { Draw } from './components/Draw'
+import type { FC } from 'react'
 
 interface LayerProps {
     object: FabricObjectWithData
 }
 
-export const Layer = ({ object }: LayerProps) => {
+export const Layer: FC<LayerProps> = ({ object }) => {
     const { attributes, listeners, setNodeRef, transform, transition } =
         useSortable({ id: object.data.id })
 

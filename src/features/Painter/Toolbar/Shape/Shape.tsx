@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent, type RefObject } from 'react'
+import { useState, type ChangeEvent, type FC, type RefObject } from 'react'
 import { Canvas, FabricObject } from 'fabric'
 import { v4 as uuidv4 } from 'uuid'
 import { HexColorPicker } from 'react-colorful'
@@ -21,7 +21,7 @@ interface ShapeProps {
     onClose: () => void
 }
 
-const Shape = ({ canvas, objectId, onClose }: ShapeProps) => {
+export const Shape: FC<ShapeProps> = ({ canvas, objectId, onClose }) => {
     const object = canvas.current
         ?.getObjects()
         .find(
@@ -195,5 +195,3 @@ const Shape = ({ canvas, objectId, onClose }: ShapeProps) => {
         </div>
     )
 }
-
-export default Shape

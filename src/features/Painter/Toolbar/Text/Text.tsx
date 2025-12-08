@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent, type RefObject } from 'react'
+import { useState, type ChangeEvent, type FC, type RefObject } from 'react'
 import { Canvas, FabricText, IText } from 'fabric'
 import { v4 as uuidv4 } from 'uuid'
 import clsx from 'clsx'
@@ -24,7 +24,7 @@ interface TextProps {
     onClose: () => void
 }
 
-const Text = ({ canvas, objectId, onClose }: TextProps) => {
+const Text: FC<TextProps> = ({ canvas, objectId, onClose }) => {
     const object = canvas.current
         ?.getObjects()
         .find(

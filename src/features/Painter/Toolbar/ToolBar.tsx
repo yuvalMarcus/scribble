@@ -1,15 +1,15 @@
-import { type RefObject } from 'react'
+import { type FC, type RefObject } from 'react'
 import { Canvas as FabricCanvas } from 'fabric'
 import { Draw } from './Draw/Draw'
 import Text from './Text/Text'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { Rnd } from 'react-rnd'
 import { ACTION_TYPE } from '../paint.config'
-import Shape from './Shape/Shape'
-import { Settings } from './Settings/Settings'
-import { Emoji } from './Emoji/Emoji'
-import { Photo } from './Photo/Photo'
-import { Layers } from './Layers/Layers'
+import { Shape } from './Shape'
+import { Settings } from './Settings'
+import { Emoji } from './Emoji'
+import { Photo } from './Photo'
+import { Layers } from './Layers'
 
 const rndDefault = {
     x: 16,
@@ -25,12 +25,12 @@ interface ToolBarProps {
     onClose: () => void
 }
 
-export const ToolBar = ({
+export const ToolBar: FC<ToolBarProps> = ({
     canvas,
     objectId,
     action,
     onClose,
-}: ToolBarProps) => {
+}) => {
     return (
         <>
             <Rnd

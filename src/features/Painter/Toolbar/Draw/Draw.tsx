@@ -1,4 +1,10 @@
-import { useEffect, useState, type ChangeEvent, type RefObject } from 'react'
+import {
+    useEffect,
+    useState,
+    type ChangeEvent,
+    type FC,
+    type RefObject,
+} from 'react'
 import { Canvas as FabricCanvas } from 'fabric'
 import clsx from 'clsx'
 import { HexColorPicker } from 'react-colorful'
@@ -17,7 +23,7 @@ interface DrawProps {
     canvas: RefObject<FabricCanvas | null>
 }
 
-export const Draw = ({ canvas }: DrawProps) => {
+export const Draw: FC<DrawProps> = ({ canvas }) => {
     const [selectedType, setSelectedType] = useState<DRAW_TYPE>(
         DRAW_TYPE.PENCIL
     )

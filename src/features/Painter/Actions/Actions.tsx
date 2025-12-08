@@ -1,3 +1,4 @@
+import type { FC } from 'react'
 import clsx from 'clsx'
 import { ACTION_TYPE, mapActionToIcon } from '../paint.config'
 
@@ -6,7 +7,7 @@ interface ActionsProps {
     onChange: (action: ACTION_TYPE) => void
 }
 
-export const Actions = ({ action, onChange }: ActionsProps) => {
+export const Actions: FC<ActionsProps> = ({ action, onChange }) => {
     return (
         <div className="flex flex-col gap-2 bg-gray-300 p-2 shadow-md">
             {Object.values(ACTION_TYPE).map((value) => {

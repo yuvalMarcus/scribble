@@ -1,4 +1,4 @@
-import { useState, type RefObject } from 'react'
+import { useState, type FC, type RefObject } from 'react'
 import { FabricImage, type Canvas } from 'fabric'
 import { v4 as uuidv4 } from 'uuid'
 import { UploadPhotoModal } from '../../../../components/UploadPhotoModal/UploadPhotoModal'
@@ -9,7 +9,7 @@ interface PhotoProps {
     onClose: () => void
 }
 
-export const Photo = ({ canvas, onClose }: PhotoProps) => {
+export const Photo: FC<PhotoProps> = ({ canvas, onClose }) => {
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
     const { addHistory } = usePaint()

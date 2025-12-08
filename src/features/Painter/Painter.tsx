@@ -1,12 +1,12 @@
-import { Menu } from './Menu/Menu'
+import { Menu } from './Menu'
 import { Canvas as FabricCanvas, FabricObject } from 'fabric'
 import { initPaint } from './paint.utils.ts'
-import { useLayoutEffect, useRef, useState } from 'react'
-import { Board } from './Board/Board.tsx'
-import { handleDrawingPath } from './Toolbar/Draw/draw.utils.ts'
+import { useLayoutEffect, useRef, useState, type FC } from 'react'
+import { Board } from './Board'
+import { handleDrawingPath } from './Toolbar/Draw/draw.utils'
 import type { ACTION_TYPE } from './paint.config.ts'
-import usePaint from '../../context/PaintContext.tsx'
-import type { FabricObjectWithData } from './Painter.type.ts'
+import usePaint from '../../context/PaintContext'
+import type { FabricObjectWithData } from './Painter.type'
 
 FabricObject.ownDefaults.objectCaching = false
 FabricObject.customProperties = [
@@ -20,7 +20,7 @@ FabricObject.customProperties = [
     'hoverCursor',
 ]
 
-export const Painter = () => {
+export const Painter: FC = () => {
     const [selectedObjectId, setSelectedObjectId] = useState<string | null>(
         null
     )

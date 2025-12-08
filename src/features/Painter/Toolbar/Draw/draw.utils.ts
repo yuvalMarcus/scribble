@@ -5,7 +5,7 @@ import { DEFAULT_COLOR, DEFAULT_SIZE } from './Draw.tsx'
 import type { FabricObjectWithData } from '../../Painter.type.ts'
 import type { ACTION_TYPE } from '../../paint.config.ts'
 
-export const drawingMode = (paint: Canvas | null, mood: boolean) => {
+export const drawingMode = (paint: Canvas | null, mood: boolean): void => {
     if (!paint) return
 
     paint.isDrawingMode = mood
@@ -14,7 +14,7 @@ export const drawingMode = (paint: Canvas | null, mood: boolean) => {
     if (paint.freeDrawingBrush) paint.freeDrawingBrush.color = DEFAULT_COLOR
 }
 
-export const setActionType = (paint: Canvas | null, type: DRAW_TYPE) => {
+export const setActionType = (paint: Canvas | null, type: DRAW_TYPE): void => {
     if (!paint) return
 
     const width = paint.freeDrawingBrush?.width || DEFAULT_SIZE
@@ -48,14 +48,14 @@ export const setActionType = (paint: Canvas | null, type: DRAW_TYPE) => {
     }
 }
 
-export const setBrushSize = (paint: Canvas | null, size: number) => {
+export const setBrushSize = (paint: Canvas | null, size: number): void => {
     if (!paint) return
 
     const d = paint.freeDrawingBrush
     if (d) d.width = size
 }
 
-export const setBrushColor = (paint: Canvas | null, color: string) => {
+export const setBrushColor = (paint: Canvas | null, color: string): void => {
     if (!paint) return
 
     const d = paint.freeDrawingBrush
@@ -63,7 +63,7 @@ export const setBrushColor = (paint: Canvas | null, color: string) => {
     if (d?.shadow) d.shadow.color = color
 }
 
-export const handleDrawingPath = ({ path }: { path: FabricObject }) => {
+export const handleDrawingPath = ({ path }: { path: FabricObject }): void => {
     path.set('hasBorders', false)
     path.set('hasControls', false)
     path.set('hasRotatingPoint', false)

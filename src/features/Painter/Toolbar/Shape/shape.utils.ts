@@ -5,7 +5,7 @@ export const getSquare = (
     fill: string,
     stroke: string,
     strokeWidth: number
-) => {
+): Rect => {
     const square = new Rect({
         width: 200,
         height: 200,
@@ -27,7 +27,7 @@ export const getCircle = (
     fill: string,
     stroke: string,
     strokeWidth: number
-) => {
+): Circle => {
     const circle = new Circle({
         radius: 50,
         fill,
@@ -47,7 +47,7 @@ export const getRectangle = (
     fill: string,
     stroke: string,
     strokeWidth: number
-) => {
+): Rect => {
     const rectangle = new Rect({
         width: 400,
         height: 200,
@@ -68,7 +68,7 @@ export const getTriangular = (
     fill: string,
     stroke: string,
     strokeWidth: number
-) => {
+): Triangle => {
     const triangular = new Triangle({
         width: 200,
         height: 250,

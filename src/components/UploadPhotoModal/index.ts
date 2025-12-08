@@ -1,0 +1,1 @@
+export { UploadPhotoModal } from './UploadPhotoModal'
