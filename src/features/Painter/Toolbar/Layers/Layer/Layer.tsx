@@ -28,7 +28,7 @@ export const Layer: FC<LayerProps> = ({ object }) => {
             ref={setNodeRef}
             {...attributes}
             {...listeners}
-            className="flex flex-row gap-4 h-12 items-center justify-between min-w-30 max-w-40 px-3 border-2 bg-gray-100 border-gray-400 rounded-md hover:bg-purple-500 hover:text-white transition-colors duration-300 cursor-pointer"
+            className="flex flex-row gap-4 py-2 items-center justify-between min-w-30 max-w-40 px-3 border-2 bg-gray-100 border-gray-400 rounded-md hover:bg-purple-500 hover:text-white transition-colors duration-300 cursor-pointer"
             style={{
                 transform: CSS.Transform.toString(transform),
                 transition: transition,
