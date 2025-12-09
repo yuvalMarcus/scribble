@@ -62,7 +62,7 @@ export const Layers: FC<LayersProps> = ({ canvas }) => {
         >
             <p className="font-bold text-xl">Layers:</p>
             {objects?.length ? (
-                <div className="flex flex-col gap-1 border-2 border-gray-600 border-dashed p-2 h-[50vh] overflow-y-scroll overflow-x-hidden">
+                <div className="flex flex-col gap-1 border-2 border-gray-600 border-dashed p-2 max-h-[50vh] overflow-y-auto overflow-x-hidden">
                     <DndContext onDragEnd={handleDragEnd}>
                         <SortableContext items={objectsIds}>
                             {objects?.map((object) => (
